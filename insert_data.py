@@ -10,19 +10,16 @@ try:
     )
 
     cursor = db.cursor()
-    sql = """CREATE TABLE mahasiswa (
-            nim VARCHAR(7),
-            name VARCHAR(255),
-            address Varchar(255),
-            PRIMARY KEY(nim)
-            )
+    sql = """INSERT INTO mahasiswa values (%s, %s, %s)
         """
-    cursor.execute(sql)
+    value = ("1106051","Oche","Garut")
+    cursor.execute(sql, value)
+    db.commit()
 
-    print("Table mahasiswa created")
+    print("Insert data mahasiswa success")
 
 except mysql.connector.Error as error:
-    print(f"Create table mahasiswa failed: {error}")
+    print(f"Failed insert data mahasiswa: {error}")
 
 finally:
     if db.is_connected():
