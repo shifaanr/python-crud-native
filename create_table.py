@@ -22,7 +22,7 @@ try:
     print("Table mahasiswa created")
 
 except mysql.connector.Error as error:
-    print(f"Create database native_crud failed: {error}")
+    print(f"Create table mahasiswa failed: {error}")
 
 finally:
     if db.is_connected():
