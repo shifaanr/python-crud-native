@@ -12,3 +12,14 @@ class MahasiswaRepo(MahasiswaAbstract):
         values =(mhs.nim, mhs.name, mhs.address)
         self.cursor.execute(query, values)
         self.conn.commit()
+
+    def delete_mahasiswa(self, nim: str):
+        query = "DELETE FROM mahasiswa where nim = %s"
+        values = (nim,)
+        self.cursor.execute(query, values)
+        self.conn.commit()
+
+    def get_all_mahasiswa(self):
+        query = "SELECT * FROM mahasiswa"
+        self.cursor.execute(query)
+        return self.cursor.fetchall()
