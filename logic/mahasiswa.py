@@ -1,6 +1,7 @@
 from interface import MahasiswaAbstract
 from entity.mahasiswa import MahasiswaEntity
 
+
 class MahasiswaLogic:
     def __init__(self, repo: MahasiswaAbstract):
         self.repo = repo
@@ -17,3 +18,6 @@ class MahasiswaLogic:
 
     def get_all(self):
         return self.repo.get_all_mahasiswa()
+
+    def update(self, nim, address, name: str):
+        self.repo.update_mahasiswa(nim, address, name)
